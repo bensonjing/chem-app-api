@@ -1,0 +1,11 @@
+Concentration	file_name
+0	0.jpg
+1	1.jpg
+5	5.jpg
+10	10.jpg
+20	20.jpg
+30	30.jpg
+40	40.jpg
+50	50.jpg
+75	75.jpg
+100	100.jpg
