@@ -1,7 +1,6 @@
 # Input: user provided image information
 # Output: predicted concentration
 
-from doctest import master
 import numpy as np
 
 from sklearn.ensemble import RandomForestRegressor
@@ -58,16 +57,17 @@ def ANNprediction(activation, size, alpha, x_train, y_train, work_x):
     return work_y
 
 
-estimators, max_depth = regression.RFoptimization(
-    X_train, Y_train, X_test, Y_test)
-e, m = int(estimators), int(max_depth)
+# estimators, max_depth = regression.RFoptimization(
+#     X_train, Y_train, X_test, Y_test)
 # kernel, C, gamma = regression.SVMoptimization(X_train, Y_train, X_test, Y_test)
 # n_comp = 3
 # activation, size, alpha = regression.ANNoptimization(
 #     X_train, Y_train, X_test, Y_test)
 
 
-output_rf = RFprediction(e, m, X_train, Y_train, work_X)
+output_rf = RFprediction(1, 1, X_train, Y_train, work_X)
 # output_svm = SVMprediction(kernel, C, gamma, X_train, Y_train, work_X)
 # output_pls = PLSprediction(n_comp, X_train, Y_train, work_X)
 # output_ann = ANNprediction(activation, size, alpha, X_train, Y_train, work_X)
+
+print(output_rf[0][0])
