@@ -1,14 +1,24 @@
 from flask import Flask, request
 
-app = Flask(__name__) 
+import result
 
-@app.get('/') 
-def index_get(): 
-  return {
-    "message": "Hello, World!"
-  }
+
+app = Flask(__name__)
+
+
+count = 0
+
 
 @app.post('/pic')
-def pic_post(): 
-  file = request.files['file']
-  return {"message": "Pic Post Success"}
+def pic_post():
+    global count
+
+    file = request.files['file']
+    file.save('photo/userPhoto.jpg')
+
+    if count == 0:
+        result.train()
+        count += 1
+
+    resultInt = result.getResult()
+    return {"result": resultInt}

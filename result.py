@@ -14,12 +14,8 @@ from sklearn.model_selection import train_test_split
 import userData
 import regression
 
-
-# get user data
-data, variable = userData.read_data("photo/info.txt")
-X_train, X_test, Y_train, Y_test = train_test_split(
-    data, variable, test_size=0.2, shuffle=True, random_state=1)
-work_X = X_train[1, :].reshape(-1, 3)
+X_TRAIN = 0
+Y_TRAIN = 0
 
 
 def RFprediction(estimators, max_depth, x_train, y_train, work_x):
@@ -57,17 +53,20 @@ def ANNprediction(activation, size, alpha, x_train, y_train, work_x):
     return work_y
 
 
-# estimators, max_depth = regression.RFoptimization(
-#     X_train, Y_train, X_test, Y_test)
-# kernel, C, gamma = regression.SVMoptimization(X_train, Y_train, X_test, Y_test)
-# n_comp = 3
-# activation, size, alpha = regression.ANNoptimization(
-#     X_train, Y_train, X_test, Y_test)
+def train():
+    global X_TRAIN
+    global Y_TRAIN
+
+    data, variable = userData.read_data('photo/info.txt')
+    X_TRAIN, X_test, Y_TRAIN, Y_test = train_test_split(
+        data, variable, test_size=0.2, shuffle=True, random_state=1)
+
+    regression.RFoptimization(X_TRAIN, Y_TRAIN, X_test, Y_test)
 
 
-output_rf = RFprediction(1, 1, X_train, Y_train, work_X)
-# output_svm = SVMprediction(kernel, C, gamma, X_train, Y_train, work_X)
-# output_pls = PLSprediction(n_comp, X_train, Y_train, work_X)
-# output_ann = ANNprediction(activation, size, alpha, X_train, Y_train, work_X)
+def getResult():
+    data = userData.read_user_photo()
+    output_rf = RFprediction(regression.ESTIMATOR,
+                             regression.MAX_DEPTH, X_TRAIN, Y_TRAIN, data)
 
-print(output_rf[0][0])
+    return output_rf[0][0]

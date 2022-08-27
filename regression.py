@@ -13,6 +13,9 @@ from sklearn.svm import SVR
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPRegressor
 
+ESTIMATOR = 0
+MAX_DEPTH = 0
+
 # 计算真实值与预测值偏差
 
 
@@ -69,8 +72,11 @@ def RFcalibration(estimators, max_depth, x_train, y_train, x_test, y_test):
 
 
 def RFoptimization(x_train, y_train, x_test, y_test):
-    estimators = [1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200]
-    max_depth = [1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    global ESTIMATOR
+    global MAX_DEPTH
+
+    estimators = [1, 5]  # , 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200]
+    max_depth = [1, 5]  # , 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     scores = []
     for es in estimators:
         for de in max_depth:
@@ -85,7 +91,9 @@ def RFoptimization(x_train, y_train, x_test, y_test):
     # 取末尾最大值
     estimator_op = scores[-1, 0]
     depth_op = scores[-1, 1]
-    return estimator_op, depth_op
+
+    ESTIMATOR = int(estimator_op)
+    MAX_DEPTH = int(depth_op)
 
 
 # SVM预测性能
