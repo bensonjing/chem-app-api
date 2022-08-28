@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for
+from flask import Flask, request
 
 import result
 
@@ -12,7 +12,6 @@ count = 0
 @app.route('/')
 def index_get():
     return 'hello'
-    # return redirect(url_for('pic'))
 
 
 @app.post('/pic')
@@ -28,7 +27,3 @@ def pic_post():
 
     resultInt = result.getResult()
     return {"result": resultInt}
-
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=5000, debug=True)
