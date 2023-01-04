@@ -1,6 +1,9 @@
 from flask import Flask, request
 
 import result
+import os
+
+os.environ["PYTHON_VERSION"] = "3.10.6"
 
 
 app = Flask(__name__)
