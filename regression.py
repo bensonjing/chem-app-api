@@ -75,8 +75,8 @@ def RFoptimization(x_train, y_train, x_test, y_test):
     global ESTIMATOR
     global MAX_DEPTH
 
-    estimators = [1, 5]  # , 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200]
-    max_depth = [1, 5]  # , 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+    estimators = [1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200]
+    max_depth = [1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     scores = []
     for es in estimators:
         for de in max_depth:
