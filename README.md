@@ -1,4 +1,4 @@
-# Antimony Meter App
+# Antimony Meter App API
 
 ## Install 
 
@@ -26,4 +26,12 @@ Access `https://chem-app-api.herokuapp.com/pic` using POST method with target im
 - Update model by adding more training images:
     1. Add images into`photo/` folder  
     2. Update `info.txt` by writing down the concentration and filename respectively
-    3. Open up [client](https://github.com/bensonjing/chem-app-client) and upload image once  
+    3. Update GitHub repository  
+    `git add .`  
+    `git commit -m "update model"`  
+    `git push origin main`  
+    4. Update Heroku repository  
+    `git push heroku main`  
+    It needs Heroku's username and password to login in order to push the changes. It could be automated, but I haven't found the solution yet. For now, send me a notification after you updated the git repository and I will update Heroku manually. 
+    4. Restart
+    4. Open up [client](https://github.com/bensonjing/chem-app-client) and upload image once  
