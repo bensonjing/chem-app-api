@@ -2,7 +2,7 @@
 
 ## Install 
 
-1. Prerequisite: python3, pip, virtualenv  
+1. Prerequisite: git, python3, pip, virtualenv  
 [Here's](https://sourabhbajaj.com/mac-setup/Python/) a tutorial on installing these on MacOS  
 
 2. Clone the repository to your local machine  
